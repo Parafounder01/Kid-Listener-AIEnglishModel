@@ -3,6 +3,10 @@
 > An interactive English learning web app designed for **slow learners** (PKG to 6th Standard)  
 > Focus: **Listening & Speaking Skills** 🎧 🗣️
 
+[![Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://parafounder01.github.io/Kid-english-learning-/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-black?style=for-the-badge&logo=github)](https://github.com/Parafounder01/Kid-english-learning-)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+
 ---
 
 ## 📋 Table of Contents
@@ -284,6 +288,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Made with ❤️ for slow learners** 🌟
 
-[View Demo](#) • [Report Bug](https://github.com/Parafounder01/Kid-english-learning-/issues) • [Request Feature](https://github.com/Parafounder01/Kid-english-learning-/issues)
+[View Demo](https://parafounder01.github.io/Kid-english-learning-/) • [Report Bug](https://github.com/Parafounder01/Kid-english-learning-/issues) • [Request Feature](https://github.com/Parafounder01/Kid-english-learning-/issues)
 
 </div>

@@ -249,6 +249,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Issues:** [GitHub Issues](https://github.com/Parafounder01/Kid-english-learning-/issues)
 - **Email:** support@eduspeakjunior.com
 - **Documentation:** See [SETTINGS.md](./SETTINGS.md)
+- **Portfolio:** [My Portfolio](https://Parafounder01.github.io/My-portfolio-/)
 
 ---
 
@@ -271,6 +272,11 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - Designed for slow learners with ❤️
 - Icons by [Lucide](https://lucide.dev)
 - Built with [React](https://react.dev) and [Vite](https://vitejs.dev)
+
+## 👤 Developer
+
+- **Portfolio:** [My Portfolio](https://Parafounder01.github.io/My-portfolio-/)
+- **GitHub:** [@Parafounder01](https://github.com/Parafounder01)
 
 ---
 

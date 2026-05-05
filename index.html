@@ -84,8 +84,8 @@
         }
         
         .play-main-btn {
-            width: 80px;
-            height: 80px;
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -157,14 +157,14 @@
         }
         
         .speed-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            width: 56px;
+            height: 48px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.15s ease;
         }
@@ -278,56 +278,58 @@
         <!-- Player Section -->
         <section id="section-player" class="hidden">
             <!-- Now Playing Header -->
-            <div class="clay-card p-6 mb-6">
-                <div class="flex flex-col md:flex-row gap-6">
-                    <!-- Thumbnail -->
-                    <div class="w-full md:w-48 h-48 bg-primary/20 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <svg class="w-24 h-24 text-primary" fill="currentColor" viewBox="0 0 24 24">
+            <div class="clay-card p-8 mb-6">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <!-- Thumbnail - BIG ICON -->
+                    <div class="w-40 h-40 md:w-56 md:h-56 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <svg class="w-24 h-24 md:w-32 md:h-32 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                         </svg>
                     </div>
                     <!-- Info -->
-                    <div class="flex-1">
-                        <span id="player-level" class="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-sm mb-2">Beginner</span>
-                        <span id="player-category" class="inline-block px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm ml-2">School</span>
-                        <h2 id="player-title" class="font-heading text-2xl font-bold text-primary mt-2">Select a lesson</h2>
-                        <p id="player-description" class="text-text/60 mt-2">Choose a lesson from the library to start learning</p>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="flex gap-2 justify-center md:justify-start mb-3">
+                            <span id="player-level" class="inline-block px-4 py-1.5 bg-primary/20 text-primary rounded-full text-sm font-semibold">Beginner</span>
+                            <span id="player-category" class="inline-block px-4 py-1.5 bg-secondary/20 text-secondary rounded-full text-sm font-semibold">School</span>
+                        </div>
+                        <h2 id="player-title" class="font-heading text-3xl md:text-4xl font-bold text-primary">Select a lesson</h2>
+                        <p id="player-description" class="text-text/60 text-lg mt-3">Choose a lesson from the library</p>
                     </div>
                 </div>
             </div>
             
             <!-- Audio Player -->
-            <div class="clay-card p-6 mb-6">
+            <div class="clay-card p-8 mb-6">
                 <!-- Progress Bar -->
-                <div class="mb-4">
-                    <div class="relative h-3 progress-bar cursor-pointer" id="progress-container" onclick="seekAudio(event)">
+                <div class="mb-6">
+                    <div class="relative h-4 progress-bar cursor-pointer" id="progress-container" onclick="seekAudio(event)">
                         <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
                         <div class="loop-marker" id="loop-start" style="display:none; left: 0%"></div>
                         <div class="loop-marker" id="loop-end" style="display:none; left: 100%"></div>
                     </div>
-                    <div class="flex justify-between text-sm text-text/60 mt-2">
+                    <div class="flex justify-between text-base text-text/60 mt-3 font-medium">
                         <span id="current-time">0:00</span>
                         <span id="total-time">0:00</span>
                     </div>
                 </div>
                 
-                <!-- Main Controls -->
-                <div class="flex items-center justify-center gap-4 mb-6">
-                    <button onclick="skipBackward()" class="player-control bg-primary/10 hover:bg-primary/20">
-                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+<!-- Main Controls - BIG BUTTONS -->
+                <div class="flex items-center justify-center gap-6 md:gap-10 mb-8">
+                    <button onclick="skipBackward()" class="player-control !w-20 !h-20 bg-primary/10 hover:bg-primary/20 rounded-full flex-shrink-0">
+                        <svg class="w-12 h-12 text-primary" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M11.5 12.5V6 13h1v5.5l4-3.5V19h1v-9l-4-3.5v3.5zm-2 2c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
                         </svg>
                     </button>
-                    <button onclick="togglePlay()" class="player-control play-main-btn clay-button" id="play-btn">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24" id="play-icon">
+                    <button onclick="togglePlay()" class="play-main-btn clay-button !w-36 !h-36 flex-shrink-0" id="play-btn">
+                        <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24" id="play-icon">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
-                        <svg class="w-8 h-8 text-white hidden" fill="currentColor" viewBox="0 0 24 24" id="pause-icon">
+                        <svg class="w-24 h-24 text-white hidden" fill="currentColor" viewBox="0 0 24 24" id="pause-icon">
                             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                         </svg>
                     </button>
-                    <button onclick="skipForward()" class="player-control bg-primary/10 hover:bg-primary/20">
-                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <button onclick="skipForward()" class="player-control !w-20 !h-20 bg-primary/10 hover:bg-primary/20 rounded-full flex-shrink-0">
+                        <svg class="w-12 h-12 text-primary" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12.5 12.5V18h-1v-2.5l-4 3.5V5h1v9l4-3.5v2.5zm-2 2c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
                         </svg>
                     </button>

@@ -278,6 +278,8 @@
                     <button onclick="filterCategory('intermediate')" class="text-gray-400 hover:text-white text-sm truncate block w-full text-left">🌿 Intermediate</button>
                     <button onclick="filterCategory('advanced')" class="text-gray-400 hover:text-white text-sm truncate block w-full text-left">🌳 Advanced</button>
                     <button onclick="filterCategory('vocabulary')" class="text-gray-400 hover:text-white text-sm truncate block w-full text-left">📖 Vocabulary</button>
+                    <button onclick="filterCategory('hr')" class="text-gray-400 hover:text-white text-sm truncate block w-full text-left">💼 HR Conversations</button>
+                    <button onclick="filterCategory('professor')" class="text-gray-400 hover:text-white text-sm truncate block w-full text-left">🎓 Professor</button>
                 </div>
             </div>
         </aside>
@@ -546,6 +548,58 @@
                 difficulty: lessonId <= 30 ? 'beginner' : 'intermediate',
                 url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
                 transcript: word + ". " + word + ". " + word + ". Practice " + word + " every day."
+            });
+            lessonId++;
+        });
+
+        // Add HR Conversations
+        const hrTopics = [
+            { title: "Job Application", content: "I would like to apply for this position. Here is my resume. Do you have any questions? I am excited about this opportunity.", category: "hr" },
+            { title: "Interview Request", content: "We would like to schedule an interview with you. What time works best for you? Please confirm your availability.", category: "hr" },
+            { title: "Salary Discussion", content: "I would like to discuss my salary. Based on my experience, I believe this is fair. What do you think?", category: "hr" },
+            { title: "Promotion Request", content: "I have been working here for two years. I believe I am ready for a promotion. What are the requirements?", category: "hr" },
+            { title: "Leave Request", content: "I need to take a leave for personal reasons. Will you approve this request? I will make sure my work is completed.", category: "hr" },
+            { title: "Benefits Inquiry", content: "Can you tell me about the employee benefits? I would like to know about health insurance and vacation policy.", category: "hr" },
+            { title: "Performance Review", content: "It is time for my performance review. What are my strengths? What areas should I improve?", category: "hr" },
+            { title: "Resignation", content: "I have decided to resign from my position. I will give two weeks notice. Thank you for the opportunity.", category: "hr" }
+        ];
+
+        hrTopics.forEach(topic => {
+            defaultLessons.push({
+                id: lessonId,
+                title: topic.title,
+                description: "HR Conversation",
+                category: "hr",
+                difficulty: "intermediate",
+                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
+                transcript: topic.content
+            });
+            lessonId++;
+        });
+
+        // Add Professor Conversations
+        const professorTopics = [
+            { title: "Asking Question", content: "Professor, I have a question about today's lecture. Could you explain this concept again? I am confused about this topic.", category: "professor" },
+            { title: "Assignment Help", content: "I need help with the assignment. When is it due? Can I get an extension? What are the requirements?", category: "professor" },
+            { title: "Grade Inquiry", content: "Professor, I would like to discuss my grade. How can I improve? Is there extra credit available?", category: "professor" },
+            { title: "Research Opportunity", content: "I am interested in research. Do you have any openings in your lab? I would like to work with you.", category: "professor" },
+            { title: "Recommendation Letter", content: "I need a recommendation letter for graduate school. Would you be willing to write one for me?", category: "professor" },
+            { title: "Office Hours", content: "When are your office hours? I would like to meet with you. Can I come during that time?", category: "professor" },
+            { title: "Course Advice", content: "Which course should I take next? What do you recommend? Is this course difficult?", category: "professor" },
+            { title: "Thesis Discussion", content: "I need advice on my thesis. Can we meet? I have some ideas I want to discuss with you.", category: "professor" },
+            { title: "Exam Preparation", content: "What should I study for the exam? Are there any specific topics? Can you give me some tips?", category: "professor" },
+            { title: "Academic Integrity", content: "I have a question about academic integrity. What is plagiarism? How should I cite my sources properly?", category: "professor" }
+        ];
+
+        professorTopics.forEach(topic => {
+            defaultLessons.push({
+                id: lessonId,
+                title: topic.title,
+                description: "Professor Conversation",
+                category: "professor",
+                difficulty: "advanced",
+                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
+                transcript: topic.content
             });
             lessonId++;
         });

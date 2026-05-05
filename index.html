@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ListenUp - English Listening App</title>
+    <title>ListenUp - English Learning for Slow Learners</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
     <script>
@@ -11,11 +11,11 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#4F46E5',
-                        secondary: '#818CF8',
-                        cta: '#22C55E',
-                        background: '#EEF2FF',
-                        text: '#312E81',
+                        dark1: '#080616',
+                        dark2: '#1A1953',
+                        dark3: '#162E93',
+                        dark4: '#2F2FE4',
+                        accent: '#2F2FE4',
                     },
                     fontFamily: {
                         heading: ['Baloo 2', 'cursive'],
@@ -26,552 +26,369 @@
         }
     </script>
     <style>
-        /* Claymorphism Design System */
+        /* 8D Design System - Dark Mode for Slow Learners */
         * { font-family: 'Comic Neue', sans-serif; }
         h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Baloo 2', cursive; }
         
+        /* D1: Deep Background */
         body {
-            background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+            background: linear-gradient(180deg, #080616 0%, #1A1953 50%, #0a0a1a 100%);
             min-height: 100vh;
+            color: #e0e0e0;
         }
         
-        .clay-card {
-            background: rgba(255, 255, 255, 0.9);
+        /* D2: Surface Cards */
+        .dark-card {
+            background: rgba(26, 25, 83, 0.7);
             border-radius: 24px;
+            border: 1px solid rgba(47, 47, 228, 0.2);
             box-shadow: 
-                8px 8px 16px rgba(0, 0, 0, 0.1),
-                -8px -8px 16px rgba(255, 255, 255, 0.8),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
         }
         
-        .clay-button {
-            background: linear-gradient(145deg, #5D5FEF, #4341D9);
-            border-radius: 16px;
+        /* D3: Accessible Buttons */
+        .dark-btn {
+            background: linear-gradient(145deg, #2F2FE4, #162E93);
+            border-radius: 20px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
             box-shadow: 
-                4px 4px 8px rgba(0, 0, 0, 0.2),
-                -4px -4px 8px rgba(255, 255, 255, 0.8),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
-            transition: all 0.2s ease-out;
+                0 4px 15px rgba(47, 47, 228, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         
-        .clay-button:hover {
-            transform: translateY(-2px);
+        .dark-btn:hover {
+            transform: translateY(-3px);
             box-shadow: 
-                6px 6px 12px rgba(0, 0, 0, 0.25),
-                -6px -6px 12px rgba(255, 255, 255, 0.9);
+                0 8px 25px rgba(47, 47, 228, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
         
-        .clay-button:active {
-            transform: translateY(0);
-            box-shadow: 
-                2px 2px 4px rgba(0, 0, 0, 0.2),
-                -2px -2px 4px rgba(255, 255, 255, 0.8);
-        }
-        
-        .clay-button-cta {
-            background: linear-gradient(145deg, #34D399, #22C55E);
-        }
-        
-.player-control {
-            width: 64px;
-            height: 64px;
+        /* D4: Huge Play Button */
+        .play-btn {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
+            background: linear-gradient(145deg, #2F2FE4, #162E93);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s ease-out;
-        }
-        
-        .play-main-btn {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease-out;
-        }
-        
-        /* Big Play Button */
-        .big-play-btn {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #5D5FEF, #4341D9);
+            transition: all 0.3s ease;
             box-shadow: 
-                8px 8px 16px rgba(0, 0, 0, 0.25),
-                -8px -8px 16px rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease-out;
+                0 0 40px rgba(47, 47, 228, 0.5),
+                0 8px 32px rgba(0, 0, 0, 0.5);
         }
         
-        .big-play-btn:hover {
+        .play-btn:hover {
             transform: scale(1.1);
             box-shadow: 
-                12px 12px 24px rgba(0, 0, 0, 0.3),
-                -12px -12px 24px rgba(255, 255, 255, 1);
+                0 0 60px rgba(47, 47, 228, 0.7),
+                0 12px 40px rgba(0, 0, 0, 0.6);
         }
         
-        .big-play-btn:active {
-            transform: scale(0.95);
-        }
-        
-        .word-highlight {
-            transition: all 0.15s ease;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-        
-        .word-highlight.active {
-            background: #4F46E5;
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        .progress-bar {
-            background: rgba(79, 70, 229, 0.2);
+        /* D5: Progress Bar */
+        .progress-track {
+            background: rgba(47, 47, 228, 0.15);
             border-radius: 999px;
+            height: 12px;
             overflow: hidden;
         }
         
         .progress-fill {
-            background: linear-gradient(90deg, #4F46E5, #818CF8);
+            background: linear-gradient(90deg, #2F2FE4, #4f4fffa);
             height: 100%;
+            border-radius: 999px;
             transition: width 0.1s linear;
         }
         
-        .loop-marker {
-            position: absolute;
-            top: -8px;
-            width: 4px;
-            height: calc(100% + 16px);
-            background: #22C55E;
-            border-radius: 2px;
-            cursor: ew-resize;
-            z-index: 10;
-        }
-        
+        /* D6: Speed Buttons */
         .speed-btn {
-            width: 56px;
-            height: 48px;
+            width: 60px;
+            height: 50px;
             border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
+            background: rgba(22, 46, 147, 0.5);
+            border: 1px solid rgba(47, 47, 228, 0.3);
+            color: #a0a0ff;
             font-weight: 700;
+            font-size: 0.95rem;
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.2s ease;
         }
         
         .speed-btn.active {
-            background: #4F46E5;
+            background: #2F2FE4;
             color: white;
+            border-color: #4f4fff;
+            box-shadow: 0 0 20px rgba(47, 47, 228, 0.5);
         }
         
-        .category-tab {
-            padding: 12px 24px;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .category-tab.active {
-            background: #4F46E5;
-            color: white;
-        }
-        
+        /* D7: Lesson Cards */
         .lesson-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(26, 25, 83, 0.5);
             border-radius: 20px;
-            padding: 16px;
+            border: 1px solid rgba(47, 47, 228, 0.15);
+            padding: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
         
         .lesson-card:hover {
+            background: rgba(47, 47, 228, 0.2);
+            border-color: #2F2FE4;
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(79, 70, 229, 0.2);
+            box-shadow: 0 12px 30px rgba(47, 47, 228, 0.3);
         }
         
-        .lesson-card.completed {
-            border: 2px solid #22C55E;
+        /* D8: Text High Contrast */
+        .text-bright { color: #ffffff; }
+        .text-dim { color: #a0a0ff; }
+        .text-muted { color: #6b6bff; }
+        
+        /* Input styling */
+        .dark-input {
+            background: rgba(8, 6, 22, 0.8);
+            border: 1px solid rgba(47, 47, 228, 0.3);
+            border-radius: 14px;
+            padding: 14px 20px;
+            color: white;
+            font-size: 1rem;
         }
         
-        /* Custom scrollbar */
+        .dark-input:focus {
+            outline: none;
+            border-color: #2F2FE4;
+            box-shadow: 0 0 15px rgba(47, 47, 228, 0.3);
+        }
+        
+        /* Tab Navigation */
+        .nav-tab {
+            padding: 12px 28px;
+            border-radius: 16px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            color: #a0a0ff;
+        }
+        
+        .nav-tab.active {
+            background: #2F2FE4;
+            color: white;
+            box-shadow: 0 0 20px rgba(47, 47, 228, 0.5);
+        }
+        
+        /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: rgba(79, 70, 229, 0.1); }
-        ::-webkit-scrollbar-thumb { background: rgba(79, 70, 229, 0.3); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(79, 70, 229, 0.5); }
+        ::-webkit-scrollbar-track { background: #080616; }
+        ::-webkit-scrollbar-thumb { background: #2F2FE4; border-radius: 4px; }
         
         @media (max-width: 768px) {
-            .clay-card { border-radius: 16px; }
-            .player-control { width: 40px; height: 40px; }
+            .play-btn { width: 100px; height: 100px; }
+            .play-btn svg { width: 40px; height: 40px; }
         }
     </style>
 </head>
-<body class="text-text font-body">
+<body class="min-h-screen">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 clay-card !rounded-b-2xl">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 clay-button flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+    <header class="fixed top-0 left-0 right-0 z-50 dark-card !rounded-b-3xl mx-4 mt-4">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-dark4 to-dark3 flex items-center justify-center">
+                    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                     </svg>
                 </div>
-                <h1 class="font-heading text-xl font-bold text-primary">ListenUp</h1>
+                <div>
+                    <h1 class="font-heading text-2xl font-bold text-white">ListenUp</h1>
+                    <p class="text-xs text-muted">For Slow Learners</p>
+                </div>
             </div>
-            <nav class="flex items-center gap-2">
-                <button onclick="showSection('library')" class="category-tab hover:bg-primary/10" id="nav-library">Library</button>
-                <button onclick="showSection('player')" class="category-tab hover:bg-primary/10" id="nav-player">Player</button>
-                <button onclick="showSection('progress')" class="category-tab hover:bg-primary/10" id="nav-progress">Progress</button>
+            <nav class="flex gap-2">
+                <button onclick="showSection('library')" class="nav-tab" id="nav-library">Library</button>
+                <button onclick="showSection('player')" class="nav-tab" id="nav-player">Player</button>
+                <button onclick="showSection('progress')" class="nav-tab" id="nav-progress">Progress</button>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="pt-24 pb-8 px-4 max-w-6xl mx-auto">
+    <main class="pt-32 pb-12 px-6 max-w-5xl mx-auto">
         
         <!-- Library Section -->
-        <section id="section-library" class="block">
-            <div class="text-center mb-8">
-                <h2 class="font-heading text-4xl font-bold text-primary mb-2">English Listening Library</h2>
-                <p class="text-text/70 text-lg">For Schools, Colleges, Professors & Slow Learners</p>
+        <section id="section-library">
+            <div class="text-center mb-10">
+                <h2 class="font-heading text-4xl font-bold text-white mb-3">English Listening</h2>
+                <p class="text-xl text-dim">Learn at your own pace • Slow Learner Friendly</p>
             </div>
             
             <!-- Category Tabs -->
             <div class="flex flex-wrap justify-center gap-3 mb-8">
-                <button onclick="filterCategory('all')" class="category-tab bg-primary/10 active" data-category="all">All</button>
-                <button onclick="filterCategory('school')" class="category-tab bg-primary/10" data-category="school">School</button>
-                <button onclick="filterCategory('college')" class="category-tab bg-primary/10" data-category="college">College</button>
-                <button onclick="filterCategory('professor')" class="category-tab bg-primary/10" data-category="professor">Professor</button>
-                <button onclick="filterCategory('slow')" class="category-tab bg-primary/10" data-category="slow">Slow Learners</button>
-            </div>
-            
-            <!-- Difficulty Filter -->
-            <div class="flex flex-wrap justify-center gap-2 mb-8">
-                <span class="text-text/60 py-2">Level:</span>
-                <button onclick="filterDifficulty('beginner')" class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm hover:bg-green-200">Beginner</button>
-                <button onclick="filterDifficulty('intermediate')" class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm hover:bg-yellow-200">Intermediate</button>
-                <button onclick="filterDifficulty('advanced')" class="px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm hover:bg-red-200">Advanced</button>
+                <button onclick="filterCategory('all')" class="nav-tab bg-dark2" data-category="all">All</button>
+                <button onclick="filterCategory('beginner')" class="nav-tab bg-dark2" data-category="beginner">Beginner</button>
+                <button onclick="filterCategory('intermediate')" class="nav-tab bg-dark2" data-category="intermediate">Intermediate</button>
+                <button onclick="filterCategory('advanced')" class="nav-tab bg-dark2" data-category="advanced">Advanced</button>
             </div>
             
             <!-- Search -->
-            <div class="max-w-md mx-auto mb-8">
+            <div class="max-w-xl mx-auto mb-10">
                 <input type="text" id="search-input" placeholder="Search lessons..." 
-                    class="w-full px-6 py-4 clay-card text-lg"
+                    class="dark-input w-full text-lg"
                     oninput="searchLessons(this.value)">
             </div>
             
             <!-- Lessons Grid -->
-            <div id="lessons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Lessons will be injected here -->
+            <div id="lessons-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Lessons injected here -->
             </div>
         </section>
 
         <!-- Player Section -->
         <section id="section-player" class="hidden">
-            <!-- Now Playing Header -->
-            <div class="clay-card p-8 mb-6">
+            <!-- Now Playing -->
+            <div class="dark-card p-8 mb-8">
                 <div class="flex flex-col md:flex-row items-center gap-8">
-                    <!-- Thumbnail - BIG ICON -->
-                    <div class="w-40 h-40 md:w-56 md:h-56 bg-gradient-to-br from-primary to-secondary rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                        <svg class="w-24 h-24 md:w-32 md:h-32 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <!-- Big Icon -->
+                    <div class="w-40 h-40 md:w-56 md:h-56 rounded-3xl bg-gradient-to-br from-dark4 to-dark3 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <svg class="w-20 h-20 md:w-28 md:h-28 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                         </svg>
                     </div>
                     <!-- Info -->
-                    <div class="flex-1 text-center md:text-left">
-                        <div class="flex gap-2 justify-center md:justify-start mb-3">
-                            <span id="player-level" class="inline-block px-4 py-1.5 bg-primary/20 text-primary rounded-full text-sm font-semibold">Beginner</span>
-                            <span id="player-category" class="inline-block px-4 py-1.5 bg-secondary/20 text-secondary rounded-full text-sm font-semibold">School</span>
+                    <div class="text-center md:text-left flex-1">
+                        <div class="flex gap-3 justify-center md:justify-start mb-4">
+                            <span id="player-level" class="px-4 py-1.5 bg-dark3 rounded-full text-sm font-semibold text-white">Beginner</span>
                         </div>
-                        <h2 id="player-title" class="font-heading text-3xl md:text-4xl font-bold text-primary">Select a lesson</h2>
-                        <p id="player-description" class="text-text/60 text-lg mt-3">Choose a lesson from the library</p>
+                        <h2 id="player-title" class="font-heading text-3xl md:text-4xl font-bold text-white mb-3">Select a lesson</h2>
+                        <p id="player-description" class="text-lg text-dim">Choose from the library</p>
                     </div>
                 </div>
             </div>
             
             <!-- Audio Player -->
-            <div class="clay-card p-8 mb-6">
-                <!-- Progress Bar -->
+            <div class="dark-card p-8 mb-8">
+                <!-- Progress -->
                 <div class="mb-6">
-                    <div class="relative h-4 progress-bar cursor-pointer" id="progress-container" onclick="seekAudio(event)">
+                    <div class="progress-track cursor-pointer" id="progress-container" onclick="seekAudio(event)">
                         <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-                        <div class="loop-marker" id="loop-start" style="display:none; left: 0%"></div>
-                        <div class="loop-marker" id="loop-end" style="display:none; left: 100%"></div>
                     </div>
-                    <div class="flex justify-between text-base text-text/60 mt-3 font-medium">
+                    <div class="flex justify-between text-sm text-muted mt-3 font-medium">
                         <span id="current-time">0:00</span>
                         <span id="total-time">0:00</span>
                     </div>
                 </div>
                 
-<!-- Main Controls - BIG BUTTONS -->
-                <div class="flex items-center justify-center gap-6 md:gap-10 mb-8">
-                    <button onclick="skipBackward()" class="player-control !w-20 !h-20 bg-primary/10 hover:bg-primary/20 rounded-full flex-shrink-0">
-                        <svg class="w-12 h-12 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M11.5 12.5V6 13h1v5.5l4-3.5V19h1v-9l-4-3.5v3.5zm-2 2c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+                <!-- Controls -->
+                <div class="flex items-center justify-center gap-6 mb-8">
+                    <button onclick="skipBackward()" class="w-16 h-16 rounded-full bg-dark2 flex items-center justify-center hover:bg-dark3 transition">
+                        <svg class="w-8 h-8 text-dim" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.5 12.5V6 13h1v5.5l4-3.5V19h1v-9l-4-3.5v3.5z"/>
                         </svg>
                     </button>
-                    <button onclick="togglePlay()" class="play-main-btn clay-button !w-36 !h-36 flex-shrink-0" id="play-btn">
-                        <svg class="w-24 h-24 text-white" fill="currentColor" viewBox="0 0 24 24" id="play-icon">
+                    
+                    <button onclick="togglePlay()" class="play-btn" id="play-btn">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24" id="play-icon">
                             <path d="M8 5v14l11-7z"/>
                         </svg>
-                        <svg class="w-24 h-24 text-white hidden" fill="currentColor" viewBox="0 0 24 24" id="pause-icon">
+                        <svg class="w-16 h-16 text-white hidden" fill="currentColor" viewBox="0 0 24 24" id="pause-icon">
                             <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
                         </svg>
                     </button>
-                    <button onclick="skipForward()" class="player-control !w-20 !h-20 bg-primary/10 hover:bg-primary/20 rounded-full flex-shrink-0">
-                        <svg class="w-12 h-12 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12.5 12.5V18h-1v-2.5l-4 3.5V5h1v9l4-3.5v2.5zm-2 2c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+                    
+                    <button onclick="skipForward()" class="w-16 h-16 rounded-full bg-dark2 flex items-center justify-center hover:bg-dark3 transition">
+                        <svg class="w-8 h-8 text-dim" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12.5 12.5V18h-1v-2.5l-4 3.5V5h1v9l4-3.5v2.5z"/>
                         </svg>
                     </button>
                 </div>
                 
-                <!-- Speed Control -->
-                <div class="flex items-center justify-center gap-2 mb-4">
-                    <span class="text-text/60 text-sm mr-2">Speed:</span>
-                    <button onclick="setSpeed(0.5)" class="speed-btn bg-white clay-card" data-speed="0.5">0.5x</button>
-                    <button onclick="setSpeed(0.75)" class="speed-btn bg-white clay-card" data-speed="0.75">0.75x</button>
-                    <button onclick="setSpeed(1)" class="speed-btn bg-white clay-card active" data-speed="1">1x</button>
-                    <button onclick="setSpeed(1.25)" class="speed-btn bg-white clay-card" data-speed="1.25">1.25x</button>
-                    <button onclick="setSpeed(1.5)" class="speed-btn bg-white clay-card" data-speed="1.5">1.5x</button>
-                    <button onclick="setSpeed(2)" class="speed-btn bg-white clay-card" data-speed="2">2x</button>
+                <!-- Speed -->
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <span class="text-muted font-semibold mr-2">Speed:</span>
+                    <button onclick="setSpeed(0.5)" class="speed-btn" data-speed="0.5">0.5x</button>
+                    <button onclick="setSpeed(0.75)" class="speed-btn" data-speed="0.75">0.75x</button>
+                    <button onclick="setSpeed(1)" class="speed-btn active" data-speed="1">1x</button>
+                    <button onclick="setSpeed(1.25)" class="speed-btn" data-speed="1.25">1.25x</button>
+                    <button onclick="setSpeed(1.5)" class="speed-btn" data-speed="1.5">1.5x</button>
                 </div>
                 
-                <!-- Loop Control -->
+                <!-- Loop -->
                 <div class="flex items-center justify-center gap-4">
-                    <button onclick="setLoopStart()" class="clay-button px-4 py-2 text-sm" id="loop-start-btn">
-                        Set A: <span id="loop-start-time">--</span>
+                    <button onclick="setLoopStart()" class="dark-btn px-5 py-3 text-sm">
+                        Set A: <span id="loop-start-time" class="text-white">--</span>
                     </button>
-                    <button onclick="setLoopEnd()" class="clay-button px-4 py-2 text-sm" id="loop-end-btn">
-                        Set B: <span id="loop-end-time">--</span>
+                    <button onclick="setLoopEnd()" class="dark-btn px-5 py-3 text-sm">
+                        Set B: <span id="loop-end-time" class="text-white">--</span>
                     </button>
-                    <button onclick="clearLoop()" class="bg-red-100 text-red-600 px-4 py-2 rounded-xl text-sm hover:bg-red-200">Clear</button>
-                    <button onclick="toggleLoop()" class="clay-button cta px-4 py-2 text-sm" id="loop-toggle">
-                        Loop: <span id="loop-status">OFF</span>
+                    <button onclick="clearLoop()" class="px-5 py-3 rounded-xl bg-red-900/50 text-red-300 hover:bg-red-900 transition">Clear</button>
+                    <button onclick="toggleLoop()" class="dark-btn px-5 py-3 text-sm">
+                        Loop: <span id="loop-status" class="text-white">OFF</span>
                     </button>
                 </div>
             </div>
             
-            <!-- Transcript Section -->
-            <div class="clay-card p-6 mb-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-heading text-xl font-bold text-primary">Transcript</h3>
-                    <div class="flex gap-2">
-                        <button onclick="toggleTranscript()" class="clay-button px-4 py-2 text-sm">Toggle View</button>
-                        <select id="language-select" onchange="changeLanguage()" class="px-4 py-2 rounded-xl bg-white clay-card text-sm">
-                            <option value="en">English</option>
-                            <option value="hi">Hindi</option>
-                            <option value="ta">Tamil</option>
-                            <option value="te">Telugu</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="transcript-container" class="max-h-64 overflow-y-auto p-4 bg-primary/5 rounded-xl">
-                    <p id="transcript-text" class="text-lg leading-relaxed text-text/80">
+            <!-- Transcript -->
+            <div class="dark-card p-8">
+                <h3 class="font-heading text-2xl font-bold text-white mb-4">Transcript</h3>
+                <div id="transcript-container" class="max-h-64 overflow-y-auto p-5 bg-dark1 rounded-xl">
+                    <p id="transcript-text" class="text-lg leading-relaxed text-dim">
                         Select a lesson to see the transcript.
                     </p>
                 </div>
-            </div>
-            
-            <!-- Add New Audio (For Professors) -->
-            <div class="clay-card p-6">
-                <h3 class="font-heading text-xl font-bold text-primary mb-4">Add New Audio</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="new-audio-title" placeholder="Title" class="px-4 py-3 rounded-xl bg-white clay-card">
-                    <input type="text" id="new-audio-url" placeholder="Audio URL (MP3, YouTube, etc.)" class="px-4 py-3 rounded-xl bg-white clay-card">
-                    <select id="new-audio-category" class="px-4 py-3 rounded-xl bg-white clay-card">
-                        <option value="school">School</option>
-                        <option value="college">College</option>
-                        <option value="professor">Professor</option>
-                        <option value="slow">Slow Learners</option>
-                    </select>
-                    <select id="new-audio-difficulty" class="px-4 py-3 rounded-xl bg-white clay-card">
-                        <option value="beginner">Beginner</option>
-                        <option value="intermediate">Intermediate</option>
-                        <option value="advanced">Advanced</option>
-                    </select>
-                </div>
-                <textarea id="new-audio-transcript" placeholder="Transcript text..." class="w-full mt-4 px-4 py-3 rounded-xl bg-white clay-card h-32"></textarea>
-                <button onclick="addNewAudio()" class="clay-button clay-button-cta px-6 py-3 text-white mt-4">Add Lesson</button>
             </div>
         </section>
 
         <!-- Progress Section -->
         <section id="section-progress" class="hidden">
-            <div class="clay-card p-6 mb-6">
-                <h2 class="font-heading text-2xl font-bold text-primary mb-4">Your Progress</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                    <div class="text-center p-4 bg-primary/10 rounded-xl">
-                        <div id="total-listened" class="font-heading text-3xl font-bold text-primary">0</div>
-                        <div class="text-sm text-text/60">Lessons</div>
+            <div class="dark-card p-8 mb-8">
+                <h2 class="font-heading text-3xl font-bold text-white mb-6">Your Progress</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-6 bg-dark2 rounded-2xl">
+                        <div id="total-listened" class="font-heading text-4xl font-bold text-dark4">0</div>
+                        <div class="text-sm text-muted mt-1">Lessons</div>
                     </div>
-                    <div class="text-center p-4 bg-secondary/10 rounded-xl">
-                        <div id="total-time-listened" class="font-heading text-3xl font-bold text-secondary">0m</div>
-                        <div class="text-sm text-text/60">Minutes</div>
+                    <div class="text-center p-6 bg-dark2 rounded-2xl">
+                        <div id="total-time-listened" class="font-heading text-4xl font-bold text-dark4">0m</div>
+                        <div class="text-sm text-muted mt-1">Minutes</div>
                     </div>
-                    <div class="text-center p-4 bg-cta/10 rounded-xl">
-                        <div id="current-streak" class="font-heading text-3xl font-bold text-cta">0</div>
-                        <div class="text-sm text-text/60">Day Streak</div>
+                    <div class="text-center p-6 bg-dark2 rounded-2xl">
+                        <div id="current-streak" class="font-heading text-4xl font-bold text-dark4">0</div>
+                        <div class="text-sm text-muted mt-1">Day Streak</div>
                     </div>
-                    <div class="text-center p-4 bg-primary/10 rounded-xl">
-                        <div id="completed-lessons" class="font-heading text-3xl font-bold text-primary">0</div>
-                        <div class="text-sm text-text/60">Completed</div>
+                    <div class="text-center p-6 bg-dark2 rounded-2xl">
+                        <div id="completed-lessons" class="font-heading text-4xl font-bold text-dark4">0</div>
+                        <div class="text-sm text-muted mt-1">Completed</div>
                     </div>
                 </div>
             </div>
             
-            <div class="clay-card p-6">
-                <h3 class="font-heading text-xl font-bold text-primary mb-4">Listening History</h3>
-                <div id="history-list" class="space-y-3">
-                    <p class="text-text/60 text-center py-8">No listening history yet. Start a lesson!</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-6">
-                <button onclick="clearProgress()" class="bg-red-100 text-red-600 px-6 py-3 rounded-xl hover:bg-red-200">Clear All Progress</button>
+            <div class="text-center">
+                <button onclick="clearProgress()" class="px-8 py-4 rounded-xl bg-red-900/50 text-red-300 hover:bg-red-900 transition text-lg font-semibold">Clear All Progress</button>
             </div>
         </section>
     </main>
 
-    <!-- Hidden Audio Element -->
+    <!-- Hidden Audio -->
     <audio id="audio-player" preload="metadata"></audio>
 
-    <!-- JavaScript -->
     <script>
-        // ===== DATA =====
+        // Sample Lessons - English Only, Slow Learner Focused
         const defaultLessons = [
-            {
-                id: 1,
-                title: "Basic Greetings",
-                description: "Learn common English greetings and introductions",
-                category: "school",
-                difficulty: "beginner",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "Hello! Welcome to our first English lesson. Today we will learn basic greetings. Hello! How are you? I am fine, thank you. What is your name? My name is..."
-
-            },
-            {
-                id: 2,
-                title: "Common Phrases",
-                description: "Essential phrases for daily conversation",
-                category: "school",
-                difficulty: "beginner",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "In this lesson, we learn common English phrases. Please and thank you. Excuse me. I am sorry. Can you help me? These are important polite words."
-
-            },
-            {
-                id: 3,
-                title: "Numbers and Counting",
-                description: "Learn to count in English",
-                category: "school",
-                difficulty: "beginner",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "One, Two, Three, Four, Five. Six, Seven, Eight, Nine, Ten. Let us count together. Twenty, Thirty, Forty, Fifty. This is how we count."
-
-            },
-            {
-                id: 4,
-                title: "Job Interview Basics",
-                description: "Prepare for your first job interview",
-                category: "college",
-                difficulty: "intermediate",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "Welcome to job interview preparation. Tell me about yourself. What are your strengths? What is your weakness? Where do you see yourself in five years? These are common questions."
-
-            },
-            {
-                id: 5,
-                title: "Business English",
-                description: "Professional communication skills",
-                category: "college",
-                difficulty: "intermediate",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "In business English, we use formal language. I would like to schedule a meeting. Please find the attached document. Let me follow up on this matter. Thank you for your consideration."
-
-            },
-            {
-                id: 6,
-                title: "Academic Writing",
-                description: "Essay writing for college",
-                category: "college",
-                difficulty: "advanced",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "Academic writing requires formal structure. Introduction, body, conclusion. Citation and references. Avoid colloquial language. Use scholarly references to support your arguments."
-
-            },
-            {
-                id: 7,
-                title: "Research Methods",
-                description: "Teaching research methods in English",
-                category: "professor",
-                difficulty: "advanced",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "As educators, we must teach research methodology. Qualitative and quantitative approaches. Data collection and analysis. Hypothesis testing and validation are essential steps."
-
-            },
-            {
-                id: 8,
-                title: "Lecture Delivery",
-                description: "Effective lecture techniques",
-                category: "professor",
-                difficulty: "advanced",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "Good lecture delivery involves clear articulation. Use examples to illustrate points. Engage with your audience. Check for understanding frequently. Use visual aids effectively."
-
-            },
-            {
-                id: 9,
-                title: "Slow: Family Words",
-                description: "Family vocabulary - slow learner special",
-                category: "slow",
-                difficulty: "beginner",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "Let us learn family words. Mother. Father. Brother. Sister. Grandmother. Grandfather. These are our family members. Family is very important."
-
-            },
-            {
-                id: 10,
-                title: "Slow: Colors and Shapes",
-                description: "Colors and shapes - slow learner special",
-                category: "slow",
-                difficulty: "beginner",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "Red, Blue, Green, Yellow. These are colors. Circle, Square, Triangle. These are shapes. Point to the red circle. Great job! Let us practice more."
-
-            },
-            {
-                id: 11,
-                title: "Slow: Days of Week",
-                description: "Days and months - slow learner special",
-                category: "slow",
-                difficulty: "beginner",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "Monday, Tuesday, Wednesday. Thursday, Friday, Saturday, Sunday. These are the days of the week. January, February, March. These are months."
-
-            },
-            {
-                id: 12,
-                title: "Slow: Simple Questions",
-                description: "Basic questions for conversation",
-                category: "slow",
-                difficulty: "beginner",
-                url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3",
-                transcript: "What is your name? Where do you live? How old are you? These are simple questions. Practice asking and answering. You are doing great!"
-
-            }
+            { id: 1, title: "Basic Greetings", description: "Learn common English greetings", category: "beginner", difficulty: "beginner", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "Hello! Welcome to our first English lesson. Today we will learn basic greetings. Hello! How are you? I am fine, thank you." },
+            { id: 2, title: "Common Phrases", description: "Essential phrases for daily use", category: "beginner", difficulty: "beginner", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "In this lesson, we learn common English phrases. Please and thank you. Excuse me. I am sorry. Can you help me?" },
+            { id: 3, title: "Numbers 1-10", description: "Learn to count in English", category: "beginner", difficulty: "beginner", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "One, Two, Three, Four, Five. Six, Seven, Eight, Nine, Ten. Let us count together." },
+            { id: 4, title: "Family Words", description: "Mother, Father, Brother, Sister", category: "beginner", difficulty: "beginner", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "Mother. Father. Brother. Sister. Grandmother. Grandfather. These are our family members." },
+            { id: 5, title: "Colors and Shapes", description: "Red, Blue, Circle, Square", category: "beginner", difficulty: "beginner", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "Red, Blue, Green, Yellow. These are colors. Circle, Square, Triangle. These are shapes." },
+            { id: 6, title: "Days of Week", description: "Monday to Sunday", category: "beginner", difficulty: "beginner", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "Monday, Tuesday, Wednesday. Thursday, Friday, Saturday, Sunday. These are the days of the week." },
+            { id: 7, title: "Simple Questions", description: "What, Where, Who", category: "intermediate", difficulty: "intermediate", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "What is your name? Where do you live? Who is your friend? These are simple questions in English." },
+            { id: 8, title: "Job Interview Basics", description: "Prepare for your first interview", category: "intermediate", difficulty: "intermediate", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "Tell me about yourself. What are your strengths? What is your weakness? Where do you see yourself in five years?" },
+            { id: 9, title: "Business English", description: "Professional communication", category: "advanced", difficulty: "advanced", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "I would like to schedule a meeting. Please find the attached document. Let me follow up on this matter." },
+            { id: 10, title: "Academic Writing", description: "Essay writing for college", category: "advanced", difficulty: "advanced", url: "https://www.learningcontainer.com/wp-content/uploads/2020/02/audio.mp3", transcript: "Academic writing requires formal structure. Introduction, body, conclusion. Citation and references are essential." },
         ];
 
-        // ===== STATE =====
+        // State
         let lessons = JSON.parse(localStorage.getItem('listenup_lessons')) || defaultLessons;
         let currentLesson = null;
         let isPlaying = false;
@@ -581,14 +398,12 @@
         let isLooping = false;
         let progress = JSON.parse(localStorage.getItem('listenup_progress')) || { lessons: [], totalMinutes: 0, streaks: 0, lastDate: null };
 
-        // ===== INITIALIZE =====
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderLessons();
             updateProgressDisplay();
-            saveLessons();
         });
 
-        // ===== FUNCTIONS =====
         function saveLessons() {
             localStorage.setItem('listenup_lessons', JSON.stringify(lessons));
         }
@@ -596,54 +411,38 @@
         function renderLessons(filtered = lessons) {
             const grid = document.getElementById('lessons-grid');
             grid.innerHTML = filtered.map(lesson => `
-                <div class="lesson-card ${progress.lessons.includes(lesson.id) ? 'completed' : ''}" onclick="playLesson(${lesson.id})">
+                <div class="lesson-card" onclick="playLesson(${lesson.id})">
                     <div class="flex items-start gap-4">
-                        <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-dark4 to-dark3 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                             </svg>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <div class="flex gap-2 mb-1">
-                                <span class="px-2 py-0.5 bg-${getDifficultyColor(lesson.difficulty)}/20 text-${getDifficultyColor(lesson.difficulty)} rounded-full text-xs">${lesson.difficulty}</span>
-                                <span class="px-2 py-0.5 bg-primary/10 text-primary rounded-full text-xs">${lesson.category}</span>
-                            </div>
-                            <h3 class="font-heading font-bold text-primary truncate">${lesson.title}</h3>
-                            <p class="text-sm text-text/60 truncate">${lesson.description}</p>
-                            ${progress.lessons.includes(lesson.id) ? '<span class="text-cta text-sm">✓ Completed</span>' : ''}
+                        <div class="flex-1">
+                            <span class="inline-block px-3 py-1 bg-dark3 rounded-full text-xs text-white mb-2">${lesson.difficulty}</span>
+                            <h3 class="font-heading font-bold text-white text-lg">${lesson.title}</h3>
+                            <p class="text-sm text-dim mt-1">${lesson.description}</p>
                         </div>
                     </div>
                 </div>
             `).join('');
             
             if (filtered.length === 0) {
-                grid.innerHTML = '<p class="text-center text-text/60 col-span-3 py-8">No lessons found. Try a different search.</p>';
+                grid.innerHTML = '<p class="text-center text-dim col-span-2 py-12">No lessons found</p>';
             }
         }
 
-        function getDifficultyColor(diff) {
-            return diff === 'beginner' ? 'green' : diff === 'intermediate' ? 'yellow' : 'red';
-        }
-
         function filterCategory(cat) {
-            document.querySelectorAll('.category-tab').forEach(btn => {
+            document.querySelectorAll('.nav-tab').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.category === cat);
             });
-            const filtered = cat === 'all' ? lessons : lessons.filter(l => l.category === cat);
-            renderLessons(filtered);
-        }
-
-        function filterDifficulty(diff) {
-            const filtered = lessons.filter(l => l.difficulty === diff);
+            const filtered = cat === 'all' ? lessons : lessons.filter(l => l.difficulty === cat || l.category === cat);
             renderLessons(filtered);
         }
 
         function searchLessons(query) {
             const q = query.toLowerCase();
-            const filtered = lessons.filter(l => 
-                l.title.toLowerCase().includes(q) || 
-                l.description.toLowerCase().includes(q)
-            );
+            const filtered = lessons.filter(l => l.title.toLowerCase().includes(q) || l.description.toLowerCase().includes(q));
             renderLessons(filtered);
         }
 
@@ -652,7 +451,6 @@
                 document.getElementById(`section-${s}`).classList.toggle('hidden', s !== section);
                 document.getElementById(`nav-${s}`)?.classList.toggle('active', s === section);
             });
-            
             if (section === 'progress') updateProgressDisplay();
         }
 
@@ -664,19 +462,17 @@
             document.getElementById('player-title').textContent = lesson.title;
             document.getElementById('player-description').textContent = lesson.description;
             document.getElementById('player-level').textContent = lesson.difficulty;
-            document.getElementById('player-category').textContent = lesson.category;
+            document.getElementById('transcript-text').textContent = lesson.transcript || 'No transcript available.';
             
             const audio = document.getElementById('audio-player');
             audio.src = lesson.url;
             audio.playbackRate = currentSpeed;
             
-            // Just load - don't auto-play
             showSection('player');
             
-            // Save to progress when started
             if (!progress.lessons.includes(lesson.id)) {
                 progress.lessons.push(lesson.id);
-                progress.totalMinutes += 5; // Estimate
+                progress.totalMinutes += 5;
                 localStorage.setItem('listenup_progress', JSON.stringify(progress));
             }
         }
@@ -691,9 +487,7 @@
                 playIcon.classList.remove('hidden');
                 pauseIcon.classList.add('hidden');
             } else {
-                if (currentLesson) {
-                    audio.play().catch(e => console.log('Play error:', e));
-                }
+                if (currentLesson) audio.play().catch(e => console.log('Play error:', e));
                 playIcon.classList.add('hidden');
                 pauseIcon.classList.remove('hidden');
             }
@@ -729,13 +523,11 @@
         function setLoopStart() {
             loopStartTime = document.getElementById('audio-player').currentTime;
             document.getElementById('loop-start-time').textContent = formatTime(loopStartTime);
-            document.getElementById('loop-start').style.display = 'block';
         }
 
         function setLoopEnd() {
             loopEndTime = document.getElementById('audio-player').currentTime;
             document.getElementById('loop-end-time').textContent = formatTime(loopEndTime);
-            document.getElementById('loop-end').style.display = 'block';
         }
 
         function toggleLoop() {
@@ -750,56 +542,12 @@
             document.getElementById('loop-start-time').textContent = '--';
             document.getElementById('loop-end-time').textContent = '--';
             document.getElementById('loop-status').textContent = 'OFF';
-            document.getElementById('loop-start').style.display = 'none';
-            document.getElementById('loop-end').style.display = 'none';
         }
 
         function formatTime(seconds) {
             const mins = Math.floor(seconds / 60);
             const secs = Math.floor(seconds % 60);
             return `${mins}:${secs.toString().padStart(2, '0')}`;
-        }
-
-        function toggleTranscript() {
-            // Toggle between English and translation
-        }
-
-        function changeLanguage() {
-            // Change transcript language
-        }
-
-        function addNewAudio() {
-            const title = document.getElementById('new-audio-title').value;
-            const url = document.getElementById('new-audio-url').value;
-            const category = document.getElementById('new-audio-category').value;
-            const difficulty = document.getElementById('new-audio-difficulty').value;
-            const transcript = document.getElementById('new-audio-transcript').value;
-            
-            if (!title || !url) {
-                alert('Please fill in title and audio URL');
-                return;
-            }
-            
-            const newLesson = {
-                id: Date.now(),
-                title,
-                description: `Custom audio added by user`,
-                category,
-                difficulty,
-                url,
-                transcript: transcript || 'No transcript available.'
-            };
-            
-            lessons.push(newLesson);
-            saveLessons();
-            renderLessons();
-            
-            // Clear form
-            document.getElementById('new-audio-title').value = '';
-            document.getElementById('new-audio-url').value = '';
-            document.getElementById('new-audio-transcript').value = '';
-            
-            alert('Lesson added successfully!');
         }
 
         function updateProgressDisplay() {
@@ -810,7 +558,7 @@
         }
 
         function clearProgress() {
-            if (confirm('Are you sure you want to clear all progress?')) {
+            if (confirm('Clear all progress?')) {
                 progress = { lessons: [], totalMinutes: 0, streaks: 0, lastDate: null };
                 localStorage.setItem('listenup_progress', JSON.stringify(progress));
                 updateProgressDisplay();
@@ -818,22 +566,18 @@
             }
         }
 
-        // Audio event listeners
+        // Audio events
         const audio = document.getElementById('audio-player');
         audio.addEventListener('timeupdate', () => {
             const percent = (audio.currentTime / audio.duration) * 100 || 0;
             document.getElementById('progress-fill').style.width = percent + '%';
             document.getElementById('current-time').textContent = formatTime(audio.currentTime);
             
-            // Loop functionality
             if (isLooping && loopStartTime !== null && loopEndTime !== null) {
                 if (audio.currentTime >= loopEndTime) {
                     audio.currentTime = loopStartTime;
                 }
             }
-            
-            // Word highlighting (simplified)
-            highlightWords(audio.currentTime);
         });
 
         audio.addEventListener('loadedmetadata', () => {
@@ -845,10 +589,6 @@
             document.getElementById('play-icon').classList.remove('hidden');
             document.getElementById('pause-icon').classList.add('hidden');
         });
-
-        function highlightWords(time) {
-            // Simplified word highlighting - would need timestamps for real implementation
-        }
     </script>
 </body>
 </html>

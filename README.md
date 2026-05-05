@@ -11,12 +11,12 @@ An interactive English listening app designed specifically for slow learners wit
 - 📱 **Android** - Chrome, Samsung Internet browser
 - 🍎 **iOS** - Safari, Chrome on iPhone/iPad
 - 💻 **Laptop/Desktop** - Chrome, Firefox, Edge, Safari
-- **👩 Female Voice** - Optimized speech synthesis for slow learners
-- **🐢 Slow Learning Mode** - Adjustable speeds from 0.5x to 1.5x
-- **🔁 A-B Loop** - Repeat any section for practice
-- **☁️ Cloud Theme** - Beautiful dark UI with floating animations
-- **📚 10 Lessons** - From Beginner to Advanced
-- **📊 Progress Tracking** - Track your learning journey
+- 👩 **Female Voice** - Optimized speech synthesis for slow learners
+- 🐢 **Slow Learning Mode** - Adjustable speeds from 0.5x to 1.5x
+- 🔁 **A-B Loop** - Repeat any section for practice
+- ☁️ **Cloud Theme** - Beautiful dark UI with floating animations
+- 📚 **1000+ Lessons** - From Beginner to Advanced
+- 📊 **Progress Tracking** - Track your learning journey
 
 ## 🎨 Design
 
@@ -28,7 +28,7 @@ An interactive English listening app designed specifically for slow learners wit
 
 ## 🚀 Live Demo
 
-👉 https://Parafounder01.github.io/Kid-english-learning-/
+👉 https://Parafounder01.github.io/Kid-Listener-AIEnglishModel/
 
 ## 📖 How to Use
 

@@ -1,293 +1,295 @@
-# 🎓 EduSpeak Junior
+# ListenUp - English Listening App
 
-> An interactive English learning web app designed for **slow learners** (PKG to 6th Standard)  
-> Focus: **Listening & Speaking Skills** 🎧 🗣️
+> An interactive English listening web application for **Schools, Colleges, Professors and Slow Learners** 🎧
 
-[![Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://parafounder01.github.io/Kid-english-learning-/)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://parafounder01.github.io/Kid-english-learning-/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-black?style=for-the-badge&logo=github)](https://github.com/Parafounder01/Kid-english-learning-)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [About the Project](#about-the-project)
+- [About](#about)
+- [Target Users](#target-users)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-- [Available Scripts](#available-scripts)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [License](#license)
-- [Support](#support)
 
 ---
 
-## 📌 About the Project
+## About
 
-**EduSpeak Junior** is a specialized web application built to help slow learners (PKG to 6th Standard) improve their English listening and speaking skills through interactive exercises, voice recognition, and gamified learning.
+**ListenUp** is a full-featured English listening learning platform designed for learners at all levels. Whether you're a school student, college student, professor, or a slow learner, this app provides the tools you need to improve your English listening skills.
 
-### Target Audience
-- Slow learners from PKG (Pre-Kindergarten) to 6th Standard
-- Students needing extra support in English pronunciation
-- Teachers and parents looking for assistive learning tools
-
----
-
-## ✨ Features
-
-- 🎧 **Listening Modules** - Audio-based lessons with visual aids
-- 🗣️ **Speaking Practice** - Voice recognition for pronunciation feedback
-- 🎮 **Gamified Learning** - Stars, rewards, and progress tracking
-- 👨‍👩‍👧‍👦 **Parent Dashboard** - Monitor child's progress
-- 🎨 **Kid-Friendly UI** - Bright colors, large buttons, simple navigation
-- 🔊 **Text-to-Speech** - Hear correct pronunciation
-- 📱 **Responsive Design** - Works on tablets and desktops
-- 🌐 **Offline Mode** - Continue learning without internet
+### Design System
+- **Style:** Claymorphism (Soft 3D, playful, bubbly)
+- **Heading Font:** Baloo 2
+- **Body Font:** Comic Neue
+- **Primary Color:** #4F46E5 (Indigo)
+- **CTA Color:** #22C55E (Green)
 
 ---
 
-## 🛠️ Tech Stack
+## Target Users
 
-### Frontend
-- **React 18** - UI library
-- **Vite** - Build tool & dev server
-- **Tailwind CSS v3** - Styling
-- **React Router** - Navigation
-- **Zustand** - State management
-- **Howler.js** - Audio playback
-- **Framer Motion** - Animations
-- **Lucide React** - Icons
-
-### Planned Backend
-- **Node.js + Express** - REST API
-- **MongoDB** - Database
-- **Firebase** - Authentication
-- **Google Cloud Speech-to-Text** - Voice processing
-- **ElevenLabs** - Text-to-speech
+| User | Level | Features |
+|------|-------|----------|
+| School Students | Beginner | Structured lessons, simple interface |
+| College Students | Intermediate-Advanced | Academic content, transcripts |
+| Professors | Expert | Upload content, track student progress |
+| Slow Learners | All Levels | Speed control, loops, repetition |
 
 ---
 
-## 🚀 Getting Started
+## Features
 
-### Prerequisites
+### Core Features
 
-- Node.js v18.0.0 or higher
-- npm v9.0.0 or higher
-- Git
+- [x] **Audio Player**
+  - Play/Pause controls
+  - Speed control (0.5x, 0.75x, 1x, 1.25x, 1.5x, 2x)
+  - A-B Loop (repeat difficult sections)
+  - Progress bar with seek
+  - Volume control
+  - Skip forward/backward (10 seconds)
 
-### Installation
+- [x] **Content Library**
+  - Categories: School, College, Professor, Slow Learners
+  - Difficulty levels: Beginner, Intermediate, Advanced
+  - Search functionality
+  - Add custom audio (for professors)
 
-1. **Clone the repository**
-   ```bash
-   git clone git@github.com:Parafounder01/Kid-english-learning-.git
-   cd Kid-english-learning-
-   ```
+- [x] **Transcript Viewer**
+  - Word-by-word sync ready
+  - Multiple language support (English, Hindi, Tamil, Telugu)
+  - Toggle transcript visibility
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+- [x] **Progress Tracking**
+  - Save listening sessions
+  - Track completed lessons
+  - Listening statistics
+  - Clear progress option
 
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your API keys (see Configuration below)
-   ```
+### User Experience
 
-4. **Start development server**
-   ```bash
-   npm run dev
-   ```
-   App runs at **http://localhost:5173**
+- 🎨 **Claymorphism Design** - Soft 3D, kid-friendly interface
+- 📱 **Responsive** - Works on mobile, tablet, desktop
+- 🌐 **Single HTML File** - Easy to host anywhere
+- 💾 **LocalStorage** - No backend required
 
 ---
 
-## 📜 Available Scripts
+## Tech Stack
 
+### Built With
+- **HTML5** - Semantic structure
+- **Tailwind CSS** - Styling (via CDN)
+- **JavaScript** - Interactivity
+- **LocalStorage** - Data persistence
+
+### Fonts
+- [Baloo 2](https://fonts.google.com/specimen/Baloo+2) - Headings
+- [Comic Neue](https://fonts.google.com/specimen/Comic+Neue) - Body text
+
+### Icons
+- [Lucide](https://lucide.dev) - SVG icons
+
+---
+
+## Getting Started
+
+### Quick Start (Local)
+
+1. Clone the repository:
 ```bash
-# Development
-npm run dev          # Start dev server (port 5173)
-
-# Production
-npm run build        # Build for production (output: dist/)
-npm run preview      # Preview production build locally
-
-# Code Quality
-npm run lint         # Run ESLint
+git clone https://github.com/Parafounder01/Kid-english-learning-.git
+cd Kid-english-learning-
 ```
 
----
-
-## 📂 Project Structure
-
-```
-Kid-english-learning-/
-│
-├── public/              # Static assets
-│   └── favicon.svg
-│
-├── src/
-│   ├── assets/         # Images, audio, animations
-│   │   ├── audio/
-│   │   ├── images/
-│   │   └── animations/
-│   │
-│   ├── components/     # Reusable UI components
-│   │   ├── Buddy.jsx          # Mascot character
-│   │   ├── BigButton.jsx      # Kid-friendly buttons
-│   │   ├── MicButton.jsx      # Speech recognition button
-│   │   └── StarReward.jsx     # Celebration animations
-│   │
-│   ├── pages/          # Application pages
-│   │   ├── Home.jsx
-│   │   ├── GradeSelect.jsx
-│   │   ├── ListeningModule.jsx
-│   │   ├── SpeakingModule.jsx
-│   │   └── ParentDashboard.jsx
-│   │
-│   ├── hooks/          # Custom React hooks
-│   │   ├── useSpeechRecognition.js
-│   │   └── useTextToSpeech.js
-│   │
-│   ├── utils/         # Helper functions
-│   │   ├── lessons.js
-│   │   └── helpers.js
-│   │
-│   ├── App.jsx        # Main app component
-│   ├── main.jsx       # Entry point
-│   └── index.css      # Tailwind styles
-│
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.cjs
-├── SETTINGS.md        # Detailed configuration guide
-└── README.md         # This file
-```
-
----
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-# App Settings
-VITE_APP_NAME=EduSpeak Junior
-VITE_APP_VERSION=1.0.0
-VITE_APP_ENV=development
-
-# API URLs
-VITE_API_BASE_URL=http://localhost:5000/api
-VITE_BACKEND_URL=http://localhost:5000
-
-# Firebase (Client-side)
-VITE_FIREBASE_API_KEY=your_firebase_key
-VITE_FIREBASE_AUTH_DOMAIN=your_app.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-
-# Feature Flags
-VITE_ENABLE_OFFLINE_MODE=true
-VITE_ENABLE_PARENT_DASHBOARD=true
-VITE_ENABLE_VOICE_RECORDING=true
-```
-
-> ⚠️ **Security Note:** Sensitive API keys (Google, ElevenLabs, AWS) must be stored in backend `.env` only - never in `VITE_*` variables!
-
-For detailed configuration, see **[SETTINGS.md](./SETTINGS.md)**.
-
----
-
-## 🚢 Deployment
-
-### Frontend (Vercel - Recommended)
-
+2. Open `index.html` in your browser:
 ```bash
-npm install -g vercel
-vercel login
-vercel --prod
+# Double-click index.html
+# OR
+npx serve index.html
 ```
 
-### Frontend (Netlify)
+3. That's it! The app works offline.
 
-```bash
-npm run build
-# Drag and drop the `dist/` folder to netlify.com/drop
-```
-
-### Backend (Render)
-
-1. Push code to GitHub
-2. Connect repo at [render.com](https://render.com)
-3. Set environment variables
-4. Deploy
+### Requirements
+- Any modern browser (Chrome, Firefox, Edge, Safari)
+- No server needed
+- No installation required
 
 ---
 
-## 🤝 Contributing
+## Deployment
 
-Contributions are welcome! Please follow these steps:
+### GitHub Pages (Free Hosting)
+
+1. **Push to GitHub**
+```bash
+git add index.html README.md
+git commit -m "Add ListenUp English Listening App"
+git push origin main
+```
+
+2. **Enable GitHub Pages**
+   - Go to Repository Settings
+   - Navigate to Pages section
+   - Select "main" branch as source
+   - Click Save
+
+3. **Your site is live at:**
+   ```
+   https://parafounder01.github.io/Kid-english-learning-/
+   ```
+
+### Alternative Hosting
+
+| Platform | Instructions |
+|----------|-------------|
+| **Vercel** | Drag & drop the HTML file |
+| **Netlify** | Drag & drop the HTML file |
+| **Cloudflare Pages** | Connect GitHub repo |
+| **Replit** | Create repl, upload HTML |
+
+---
+
+## How to Use
+
+### For Students
+1. Open the app
+2. Browse lessons by category
+3. Click a lesson to start
+4. Use speed control to slow down
+5. Set A-B loop for difficult sections
+6. Track your progress
+
+### For Professors
+1. Open the app
+2. Go to Player section
+3. Add new audio with title and URL
+4. Set category and difficulty
+5. Add transcript if available
+
+---
+
+## Adding Custom Audio
+
+The app supports external audio URLs:
+
+```html
+<!-- Supported formats -->
+MP3:  https://example.com/audio.mp3
+OGG:  https://example.com/audio.ogg
+WAV:  https://example.com/audio.wav
+
+<!-- YouTube URLs -->
+https://www.youtube.com/watch?v=...
+```
+
+---
+
+## Configuration
+
+### Changing Default Lessons
+
+Edit the `defaultLessons` array in the JavaScript section:
+
+```javascript
+const defaultLessons = [
+    {
+        id: 1,
+        title: "Your Lesson Title",
+        description: "Lesson description",
+        category: "school",  // school, college, professor, slow
+        difficulty: "beginner",  // beginner, intermediate, advanced
+        url: "https://your-audio-url.mp3",
+        transcript: "Your transcript text..."
+    }
+];
+```
+
+### Supported Audio Sources
+
+- Direct MP3/WAV/OGG URLs
+- Any publicly accessible audio file
+- CDN-hosted audio files
+
+---
+
+## Browser Support
+
+| Browser | Version |
+|---------|---------|
+| Chrome | 80+ |
+| Firefox | 75+ |
+| Safari | 13+ |
+| Edge | 80+ |
+
+---
+
+## Contributing
+
+Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) first.
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.
 
 ---
 
-## 📞 Support
+## Support
 
 - **Issues:** [GitHub Issues](https://github.com/Parafounder01/Kid-english-learning-/issues)
-- **Email:** support@eduspeakjunior.com
-- **Documentation:** See [SETTINGS.md](./SETTINGS.md)
-- **Portfolio:** [My Portfolio](https://Parafounder01.github.io/My-portfolio-/)
+- **Email:** support@example.com
 
 ---
 
-## 🎯 Roadmap
+## Roadmap
 
-- [x] Initial project setup (React + Vite + Tailwind)
-- [x] Basic routing structure
-- [ ] Listening module implementation
-- [ ] Speaking module with speech recognition
-- [ ] Parent dashboard
-- [ ] Backend API integration
-- [ ] Offline mode support
-- [ ] Progress tracking
-- [ ] Multi-language support
+- [x] Audio player with speed control
+- [x] A-B loop functionality
+- [x] Content library with categories
+- [x] Progress tracking
+- [x] Responsive design
+- [ ] YouTube audio support
+- [ ] Word-by-word highlighting
+- [ ] Multiple language transcripts
+- [ ] Cloud sync
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- Designed for slow learners with ❤️
-- Icons by [Lucide](https://lucide.dev)
-- Built with [React](https://react.dev) and [Vite](https://vitejs.dev)
+- [Tailwind CSS](https://tailwindcss.com) - Styling
+- [Google Fonts](https://fonts.google.com) - Typography
+- [Lucide](https://lucide.dev) - Icons
 
-## 👤 Developer
+---
 
-- **Portfolio:** [My Portfolio](https://Parafounder01.github.io/My-portfolio-/)
+## Developer
+
 - **GitHub:** [@Parafounder01](https://github.com/Parafounder01)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for slow learners** 🌟
+**Made with ❤️ for English Learners** 🌟
 
-[View Demo](https://parafounder01.github.io/Kid-english-learning-/) • [Report Bug](https://github.com/Parafounder01/Kid-english-learning-/issues) • [Request Feature](https://github.com/Parafounder01/Kid-english-learning-/issues)
+[Live Demo](https://parafounder01.github.io/Kid-english-learning-/) • [Report Bug](https://github.com/Parafounder01/Kid-english-learning-/issues)
 
 </div>

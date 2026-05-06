@@ -60,4 +60,4 @@ MIT License - Feel free to use and modify!
 
 ---
 
-Made with ❤️ for slow learners everywhere 🐢
+Made with 🩵 for slow learners everywhere 🐢
